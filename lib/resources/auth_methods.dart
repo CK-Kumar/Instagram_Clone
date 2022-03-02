@@ -15,6 +15,7 @@ class AuthMethods {
     required String password,
     required String username,
     required String bio,
+    //required Uint8List file,
   }) async {
     String res = 'Some error occurred';
     try {
@@ -30,7 +31,10 @@ class AuthMethods {
           'uid': cred.user!.uid,
           'email': email,
           'bio': bio,
+          'followers': [],
+          'following': [],
         });
+        res = 'Success';
       }
     } catch (e) {
       res = e.toString();
