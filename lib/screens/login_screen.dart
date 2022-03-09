@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/resources/auth_methods.dart';
+import 'package:instagram_clone/screens/signup_screen.dart';
 import 'package:instagram_clone/util/colors.dart';
 import 'package:instagram_clone/util/utils.dart';
 import 'package:instagram_clone/widgets/text_field_input.dart';
@@ -34,6 +35,11 @@ class _LoginScreenState extends State<LoginScreen> {
     if (res != 'Success') {
       showSnackBar(res, context);
     }
+  }
+
+  void toSignUpScreen() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => const SignupScreen()));
   }
 
   @override
@@ -110,6 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),
                   GestureDetector(
+                    onTap: toSignUpScreen,
                     child: Container(
                       child: const Text(
                         'Sign Up',
