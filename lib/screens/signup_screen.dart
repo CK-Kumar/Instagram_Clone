@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone/resources/auth_methods.dart';
+import 'package:instagram_clone/screens/login_screen.dart';
 import 'package:instagram_clone/util/colors.dart';
 import 'package:instagram_clone/util/utils.dart';
 import 'package:instagram_clone/widgets/text_field_input.dart';
@@ -29,6 +30,11 @@ class _SignupScreenState extends State<SignupScreen> {
     _passwordController.dispose();
     _bioController.dispose();
     _usernameController.dispose();
+  }
+
+  void toLoginScreen() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
   }
 
   @override
@@ -159,13 +165,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      child: const Text("Don't have an account?"),
+                      child: const Text("Already have an account?"),
                       padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
                     GestureDetector(
+                      onTap: toLoginScreen,
                       child: Container(
                         child: const Text(
-                          'Sign Up',
+                          'Login',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 8),
